@@ -47,4 +47,6 @@ public class GenreController {
     public void delete(@PathVariable Long id) {
         genreService.delete(id);
     }
+
+    // Просто проверка коммитов
 }
