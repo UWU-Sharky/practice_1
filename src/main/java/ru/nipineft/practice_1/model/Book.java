@@ -1,6 +1,9 @@
 package ru.nipineft.practice_1.model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +24,7 @@ public class Book {
     private Publisher publisher;
 
     @Column(name = "publication_year")
+    @JdbcTypeCode(SqlTypes.SMALLINT)   // в БД smallint
     private Integer publicationYear;
 
     @ManyToMany
@@ -37,6 +41,7 @@ public class Book {
             joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "genre_id")
     )
+
     private List<Genre> genres = new ArrayList<>();
 
     public Book() {}

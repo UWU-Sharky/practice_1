@@ -1,8 +1,7 @@
 package ru.nipineft.practice_1.exception;
 
-public class UserNotFoundException extends RuntimeException{
+public class UserNotFoundException extends NotFoundException {
     public UserNotFoundException(Long id) {
-        super("Пользователь с id = "+id+" не найден");
+        super("Пользователь", id);
     }
-
 }
